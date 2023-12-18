@@ -18,14 +18,14 @@ console.log(screens.length);
 и “Стоимость разработки сайта (fullPrice) рублей/ долларов/гривен/юани”
 */
 console.log(`${screenPrice} рублей`);
-console.log(`${screenPrice / 89,7} долларов`);
-console.log(`${screenPrice / 2,42} гривен`);
-console.log(`${screenPrice / 12,61} юани`);
+console.log(`${Math.round(screenPrice / 89.7 * 100) / 100} долларов`);
+console.log(`${Math.round(screenPrice / 2.42 * 100) / 100} гривен`);
+console.log(`${Math.round(screenPrice / 12.61 * 100) / 100} юани`);
 
 console.log(`${rollback} рублей`);
-console.log(`${rollback / 89,7} долларов`);
-console.log(`${rollback / 2,42} гривен`);
-console.log(`${rollback / 12,61} юани`);
+console.log(`${Math.round(rollback / 89.7 * 100) / 100} долларов`);
+console.log(`${Math.round(rollback / 2.42 * 100) / 100} гривен`);
+console.log(`${Math.round(rollback / 12.61 * 100) / 100} юани`);
 
 //Привести строку screens к нижнему регистру и разбить строку на массив, вывести массив в консоль
 console.log(screens.toLowerCase().split(''));
