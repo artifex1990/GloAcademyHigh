@@ -1,26 +1,26 @@
 const typeLanguage = confirm('Хотите установить русский формат даты? По умолчанию дата будет на английском') ? 'ru' : 'en';
-const dates = [
-    ['ru', new Intl.DateTimeFormat('ru-RU', {weekday: 'long'}).format(new Date())],
-    ['en', new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(new Date())]
-];
+const dates = {
+    'ru': ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'],
+    'en': ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+};
 const namePerson = prompt('Как вас зовут? ->').toLowerCase();
 
 if (typeLanguage === 'ru') {
-    console.log(new Intl.DateTimeFormat('ru-RU', {weekday: 'long'}).format(new Date()));
+    console.log(['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'].join(', '));
 } else {
-    console.log(new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(new Date()));
+    console.log(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].join(', '));
 }
 
 switch(typeLanguage) {
     case 'ru':
-        console.log(new Intl.DateTimeFormat('ru-RU', {weekday: 'long'}).format(new Date()));
+        console.log(['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'].join(', '));
         break;
     case 'en':
-        console.log(new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(new Date()));
+        console.log(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].join(', '));
         break;
 }
 
-console.log((dates.filter((v) => v[0] === typeLanguage))[0][1]);
+console.log(dates[typeLanguage].join(', '));
 
 console.log(
     'Вы ' +
