@@ -47,7 +47,7 @@ const generatorHtml = {
     }
 };
 
-const printOnDom = {
+const WorkWithDOM = {
     addElementInBody: function(element = '') {
         document.body.innerHTML += element;
     },
@@ -70,5 +70,5 @@ const weekDayNames = calendar.getWeekDays().map(name => {
     return generatorHtml.p(tempName);
 });
 
-printOnDom.clearBody();
-printOnDom.addElementInBody(weekDayNames.join(''));
+WorkWithDOM.clearBody();
+WorkWithDOM.addElementInBody(weekDayNames.join(''));
