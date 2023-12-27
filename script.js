@@ -45,7 +45,7 @@ const workerForDate = {
         second: '2-digit'
     },
 
-    generateDate: () => {
+    generateDates: function () {
         const dateA = new Date();
         const dateB = new Date();
 
@@ -64,7 +64,11 @@ const workerForDate = {
                 partTime[p.type] = p.value;
         });
 
-        const currentDateA = `Сегодня ${getTitle(partTime.weekday)}, ${partTime.day} ${partTime.month} ${partTime.year} года, ${partTime.hour} ${getDeclension(partTime.hour, 'hour')} ${partTime.minute} ${getDeclension(partTime.minute, 'minute')} ${partTime.second} ${getDeclension(partTime.second, 'second')}`;
+        const currentDateA = `Сегодня ${getTitle(partTime.weekday)},
+         ${partTime.day} ${partTime.month} ${partTime.year} года,
+         ${parseInt(partTime.hour)} ${getDeclension(partTime.hour, 'hour')} 
+         ${parseInt(partTime.minute)} ${getDeclension(partTime.minute, 'minute')} 
+         ${parseInt(partTime.second)} ${getDeclension(partTime.second, 'second')}`;
         const currentDateB = `${new Intl.DateTimeFormat("ru", this.optionDateYMD_B).format(dateB)} - ${new Intl.DateTimeFormat("ru", this.optionDateHMS_B).format(dateB)}`;
 
         return [currentDateA, currentDateB];
@@ -104,9 +108,11 @@ const workWithDOM = {
     }
 };
 
+workWithDOM.clearBody();
+workWithDOM.addElementInBody(workerForDate.generateDates().map(el => generatorHtml.p(el)).join(''));
+
 setInterval(() => {
-    const dates = workerForDate.generateDate().map(el => generatorHtml.p(el));
     workWithDOM.clearBody();
-    workWithDOM.addElementInBody(dates.join(''));
+    workWithDOM.addElementInBody(workerForDate.generateDates().map(el => generatorHtml.p(el)).join(''));
 }, 1000);
 
