@@ -12,7 +12,7 @@ const render = () => {
     todoCompleted.innerHTML = '';
 
     toDoData.forEach(item => {
-        if (!item.text) return;
+        if (!item.text.trim()) return;
 
         const li = document.createElement('li');
         
