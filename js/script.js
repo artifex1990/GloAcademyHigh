@@ -12,8 +12,6 @@ const render = () => {
     todoCompleted.innerHTML = '';
 
     toDoData.forEach(item => {
-        if (!item.text.trim()) return;
-
         const li = document.createElement('li');
         
         li.classList.add('todo-item');
@@ -48,9 +46,15 @@ todoControl.addEventListener('submit', (event) => {
     
     event.preventDefault();
 
+    if (!headerInput.value.trim()) {
+        headerInput.value = '';
+
+        return;
+    }
+
     const newTodo = {
         id: (new Date()).getTime(),
-        text: headerInput.value,
+        text: headerInput.value.trim(),
         completed: false
     };
 
