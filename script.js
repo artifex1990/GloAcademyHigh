@@ -1,6 +1,6 @@
 'use strict';
 
-const tag = function(name, text, cssStyle = {}) {
+const Tag = function(name, text, cssStyle = {}) {
     this.generate = () => {
         const tag = document.createElement(name);
         tag.textContent = text.trim();
@@ -42,15 +42,15 @@ const DomElement = function(selector, height, width, bg, fontSize) {
     };
 
     this.create = () => {
-        let genTag = new tag('h1', 'Нет правильного тега', this.errorStyle).generate();
+        let genTag = new Tag('h1', 'Нет правильного тега', this.errorStyle).generate();
 
         if (this.selector.indexOf('.') > -1) {
-            genTag = new tag('div', 'Контейнер с классом ' + this.selector.slice(1), this.styles).generate();
+            genTag = new Tag('div', 'Контейнер с классом ' + this.selector.slice(1), this.styles).generate();
             genTag.classList.add(this.selector.slice(1));
         }
 
         if (this.selector.indexOf('#') > -1) {
-            genTag = new tag('p', 'параграф ' + this.selector.slice(1), this.styles).generate();
+            genTag = new Tag('p', 'параграф ' + this.selector.slice(1), this.styles).generate();
             genTag.id = this.selector.slice(1);
         }
         
@@ -60,11 +60,13 @@ const DomElement = function(selector, height, width, bg, fontSize) {
     }; 
 };
 
-const block = new DomElement('.block', '100px', '100px', 'pink', '12px').create();
+document.addEventListener("DOMContentLoaded", () => {
+    const block = new DomElement('.block', '100px', '100px', 'pink', '12px').create();
 
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowUp') block.style.top = `${parseInt(block.style.top) - 10}px`;
-    if (event.key === 'ArrowLeft') block.style.left = `${parseInt(block.style.left) - 10}px`;
-    if (event.key === 'ArrowRight') block.style.left = `${parseInt(block.style.left) + 10}px`;
-    if (event.key === 'ArrowDown') block.style.top = `${parseInt(block.style.top) + 10}px`;
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowUp') block.style.top = `${parseInt(block.style.top) - 10}px`;
+        if (event.key === 'ArrowLeft') block.style.left = `${parseInt(block.style.left) - 10}px`;
+        if (event.key === 'ArrowRight') block.style.left = `${parseInt(block.style.left) + 10}px`;
+        if (event.key === 'ArrowDown') block.style.top = `${parseInt(block.style.top) + 10}px`;
+    });
 });
