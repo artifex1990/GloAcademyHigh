@@ -3,10 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="script.js"></script>
+    <title>Карточки сотрудников</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/script.js"></script>
 </head>
 <body>
-    Шаблон под урок!
+    <h2>Данные о сотруднике</h2>
+    <form action="">
+        <table>
+            <tr>
+                <td>
+                    <label for="firstname">Имя: </label>
+                    <input type="text" name="firstname">
+                </td>
+                <td>
+                    <label for="surname">Фамилия: </label>
+                    <input type="text" name="surname">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="age">Возраст: </label>
+                    <input type="text" name="age">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="position">Должность: </label>
+                    <select name="position">
+                        <option value="Слесарь">Слесарь</option>
+                        <option value="Водитель">Водитель</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="organization">Организация: </label>
+                    <input type="text" name="organization">
+                </td>
+                <td>
+                    <label for="category">Разряд: </label>
+                    <input type="text" name="category">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="presenceOfChildren">Наличие детей: </label>
+                    <input type="checkbox" name="presenceOfChildren">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="dateOfEmployment">Дата принятия на работу: </label>
+                    <input type="date" name="dateOfEmployment">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Сохранить</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <hr>
+    <h2>Список сотрудников</h2>
+    <div id="app"></div>
 </body>
 </html>
