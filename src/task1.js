@@ -1,3 +1,3 @@
-import throttlingModule from './modules/throttling';
+import debounceModule from './modules/debounce';
 
-throttlingModule();
+debounceModule();
