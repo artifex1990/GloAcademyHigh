@@ -3,7 +3,7 @@ const animation = () => {
   const start = document.getElementById('start');
   const stop = document.getElementById('stop');
   const reset = document.getElementById('reset');
-  box.style.position = 'absolute';
+
   let count = 0;
   let idInterval;
   const animate = () => {
