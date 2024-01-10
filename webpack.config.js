@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    main: './index.js',
+    task1: './task1.js',
+    //task2: './task2.js',
   },
   output: {
     path: path.resolve(__dirname, './dist/js'),
