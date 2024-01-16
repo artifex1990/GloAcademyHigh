@@ -9,7 +9,7 @@
         "sourceType": "module"
     },
     "ignorePatterns": [
-        "**/dist/js/*.js",
+        "**/dist/scripts/*.js",
         "webpack.config.js"
     ],
     "rules": {
