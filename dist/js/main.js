@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_calcSwap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/calcSwap */ \"./modules/calcSwap.js\");\n// eslint-disable-next-line import/no-named-as-default\n\n\n(0,_modules_calcSwap__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_calcSwap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/calcSwap */ \"./modules/calcSwap.js\");\n// eslint-disable-next-line import/no-named-as-default\n\n\n(0,_modules_calcSwap__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(10);\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getData */ \"./modules/getData.js\");\n\n\nconst calcSwap = () => {\n  const wallet = [];\n  const urlCurrencies = 'https://exchangeratesapi.io/v1';\n  const endpoint = 'latest';\n  const accessKey = 'API_KEY';\n\n  (0,_getData__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(`${urlCurrencies}/${endpoint}?access_key=${accessKey}`).then((data) => {\n    wallet.push(data);\n  });\n  console.log(wallet);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calcSwap);\n\n\n//# sourceURL=webpack:///./modules/calcSwap.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getData */ \"./modules/getData.js\");\n\n\nconst calcSwap = (value, from = 'USD', to = 'RUB') => {\n  const wallet = [];\n  const urlCurrencies = 'https://openexchangerates.org/api';\n  const endpoint = 'latest.json';\n  const appId = '59a95d220be8475e8dfa868ee3d39097';\n\n  (0,_getData__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(`${urlCurrencies}/${endpoint}?app_id=${appId}&base=${to}`)\n    .then((data) => {\n      wallet.push(data);\n    });\n\n  console.log(wallet);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calcSwap);\n\n\n//# sourceURL=webpack:///./modules/calcSwap.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getData = (url) => fetch(url)\n  .then((response) => response.json())\n  .catch((error) => console.log(error.message));\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getData);\n\n\n//# sourceURL=webpack:///./modules/getData.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getData = (url, options = {}) => {\n  // eslint-disable-next-line no-param-reassign\n  options.headers = { 'Content-type': 'application/json' };\n\n  return fetch(url, options)\n    .then((response) => response.json())\n    .catch((error) => console.log(error.message));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getData);\n\n\n//# sourceURL=webpack:///./modules/getData.js?");
 
 /***/ })
 

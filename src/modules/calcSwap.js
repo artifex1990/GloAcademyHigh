@@ -1,14 +1,16 @@
 import getData from './getData';
 
-const calcSwap = () => {
+const calcSwap = (value, from = 'USD', to = 'RUB') => {
   const wallet = [];
-  const urlCurrencies = 'https://exchangeratesapi.io/v1';
-  const endpoint = 'latest';
-  const accessKey = 'API_KEY';
+  const urlCurrencies = 'https://openexchangerates.org/api';
+  const endpoint = 'latest.json';
+  const appId = '59a95d220be8475e8dfa868ee3d39097';
 
-  getData(`${urlCurrencies}/${endpoint}?access_key=${accessKey}`).then((data) => {
-    wallet.push(data);
-  });
+  getData(`${urlCurrencies}/${endpoint}?app_id=${appId}&base=${to}`)
+    .then((data) => {
+      wallet.push(data);
+    });
+
   console.log(wallet);
 };
 
