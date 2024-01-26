@@ -1,4 +1,8 @@
 // eslint-disable-next-line import/no-named-as-default
-import calcSwap from './modules/calcSwap';
+import calc from './modules/calc';
+import initFields from './modules/initFields';
+import swapCurrency from './modules/swapCurrency';
 
-calcSwap(10);
+initFields();
+swapCurrency();
+calc();

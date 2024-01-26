@@ -1,3 +1,39 @@
-h1 {
-    color: slateblue;
+.swapper {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    background: yellow;
+    padding: 12px;
+}
+
+.switch-currencies {
+    display: flex;
+    column-gap: 40px;
+}
+
+.calc {
+    display: flex;
+    column-gap: 18px;
+}
+
+.swapper > * {
+    margin-top: 10px;
+}
+
+.swapper > h2 {
+    margin: 0;
+}
+
+select {
+    width: 100px;
+    text-align: center;
+}
+
+button {
+    width: 150px;
+}
+
+button#swap {
+    position: relative;
+    bottom: 2px;
 }

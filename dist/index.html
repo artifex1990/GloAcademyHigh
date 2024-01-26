@@ -3,10 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
 	<title>Конвертер валют</title>
 	<script src="./js/main.js" defer></script>
 </head>
 <body>
-	<div id="app"></div>
+	<div class="swapper">
+		<h2>Выбирите валюту!</h2>
+		<div class="switch-currencies">
+			<div class="from">
+				<select name="from-currency" id="from-currency">
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+					<option value="RUB">RUB</option>
+				</select>
+			</div>
+			<button id="swap" type="submit">&lrhar;</button>
+			<div class="to">
+				<select name="to-currency" id="to-currency">
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+					<option value="RUB">RUB</option>
+				</select>
+			</div>
+		</div>
+		<div class="calc">
+			<div class="from">
+				<input type="text" id="from">
+				<span class="description">Американский доллар (USD)</span>
+			</div>
+			<div class="to">
+				<input type="text" id="to" disabled>
+				<span class="description">Американский доллар (USD)</span>
+			</div>
+		</div>
+		<button id="convert" type="submit">Конвертировать</button>
+	</div>
 </body>
 </html>
